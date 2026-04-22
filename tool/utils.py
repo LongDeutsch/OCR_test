@@ -1,4 +1,5 @@
 import gdown
+import os
 import re
 import cv2
 import numpy as np
@@ -7,12 +8,13 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 def download_weights(id_or_url, cached=None, md5=None, quiet=False):
-    if id_or_url.startswith('http'):
-        url = id_or_url
-    else:
-        url = 'https://drive.google.com/uc?id={}'.format(id_or_url)
+    if cached is not None:
+        os.makedirs(os.path.dirname(cached) or ".", exist_ok=True)
 
-    return gdown.cached_download(url=url, path=cached, md5=md5, quiet=quiet)
+    if id_or_url.startswith('http'):
+        return gdown.download(url=id_or_url, output=cached, quiet=quiet, fuzzy=True)
+
+    return gdown.download(id=id_or_url, output=cached, quiet=quiet)
 
 
 weight_url = {

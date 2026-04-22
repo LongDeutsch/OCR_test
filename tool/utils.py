@@ -5,7 +5,7 @@ import numpy as np
 import webcolors
 import matplotlib
 import matplotlib.pyplot as plt
-from modules.detection import draw_bbox
+
 def download_weights(id_or_url, cached=None, md5=None, quiet=False):
     if id_or_url.startswith('http'):
         url = id_or_url
@@ -104,6 +104,7 @@ def visualize(
     """
     Visualize an image with its bouding boxes
     """
+    from modules.detection import draw_bbox
     
     if visualize_best:
         assert labels is not None and probs is not None, "To visualize best, please provide labels and probs"

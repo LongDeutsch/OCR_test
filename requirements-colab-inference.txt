@@ -11,6 +11,7 @@ tqdm
 requests
 colorlog
 pyclipper
+Polygon3
 einops
 gdown==3.13.0
 webcolors

@@ -7,7 +7,10 @@ import torch.nn as nn
 try:
     from torchvision.models._utils import load_state_dict_from_url
 except ImportError:
-    from torchvision.models.utils import load_state_dict_from_url
+    try:
+        from torchvision.models.utils import load_state_dict_from_url
+    except ImportError:
+        from torch.hub import load_state_dict_from_url
 
 __all__ = [
     'ShuffleNetV2', 'shufflenet_v2_x0_5', 'shufflenet_v2_x1_0',

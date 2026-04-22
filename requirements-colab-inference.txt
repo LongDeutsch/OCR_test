@@ -1,0 +1,17 @@
+# Lightweight dependencies for demo/notebooks/vnm_ocr_toolbox_Inference_Local.ipynb
+# Colab already ships compatible torch/torchvision builds, so do not pin torchvision==0.10.
+pyyaml>=5.1
+numpy
+pandas
+matplotlib
+opencv-python
+Pillow
+scipy
+tqdm
+requests
+colorlog
+pyclipper
+einops
+gdown==3.13.0
+webcolors
+transformers
